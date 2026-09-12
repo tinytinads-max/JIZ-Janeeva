@@ -1,0 +1,3001 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Cabinet Maker - Home</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        /* =========================================================
+           GLOBAL RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           HEADER / FULL SCREEN HOME BANNER
+        ========================================================= */
+
+        .header {
+
+            width: 100%;
+            height: 100vh;
+            min-height: 650px;
+
+            color: #fff;
+
+            display: flex;
+            flex-direction: column;
+
+            position: relative;
+            overflow: hidden;
+
+            background: #111;
+        }
+
+
+        /* =========================================================
+           HERO VIDEO BACKGROUND
+        ========================================================= */
+
+        .hero-video {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            z-index: 0;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           DARK VIDEO OVERLAY
+        ========================================================= */
+
+        .header::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.48),
+                    rgba(0, 0, 0, 0.58)
+                );
+
+            z-index: 1;
+
+            pointer-events: none;
+        }
+
+
+        .header::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.15),
+                    rgba(0, 0, 0, 0.48)
+                );
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .nav-container {
+
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 20px 40px;
+
+            background: rgba(0, 0, 0, 0.30);
+
+            position: relative;
+            z-index: 100;
+        }
+
+
+        /* =========================================================
+           LOGO
+        ========================================================= */
+
+        .logo {
+
+            display: flex;
+            align-items: center;
+
+            flex-shrink: 0;
+        }
+
+
+        .logo img {
+
+            width: 120px;
+            height: auto;
+
+            object-fit: contain;
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .navbar {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 20px;
+        }
+
+
+        .navbar a {
+
+            color: #fff;
+
+            font-size: 17px;
+            font-weight: 400;
+
+            margin-left: 16px;
+
+            transition:
+                color 0.3s ease;
+        }
+
+
+        .navbar a:hover,
+        .navbar a.active {
+
+            color: #559ee6;
+        }
+
+
+        /* =========================================================
+           HEADER BUTTON
+        ========================================================= */
+
+        .header-btn {
+
+            flex-shrink: 0;
+        }
+
+
+        .btn-primary {
+
+            display: inline-block;
+
+            background-color: #3f7fc0;
+            color: #fff;
+
+            padding: 9px 20px;
+
+            border-radius: 4px;
+
+            font-weight: 600;
+
+            transition:
+                background-color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .btn-primary:hover {
+
+            background-color: #7c7e80;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
+           MOBILE MENU BUTTON
+        ========================================================= */
+
+        .menu-toggle {
+
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: none;
+            border-radius: 5px;
+
+            background: #538bda;
+            color: #fff;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* =========================================================
+           HERO CONTENT
+        ========================================================= */
+
+        .hero {
+
+            flex: 1;
+
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        .hero-content {
+
+            width: 100%;
+            max-width: 950px;
+
+            margin: 0 auto;
+        }
+
+
+        .hero-small {
+
+            font-size: 18px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color: #73c8d4;
+
+            font-weight: 600;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero h1 {
+
+            font-size: 4.5rem;
+
+            line-height: 1.08;
+
+            font-weight: 700;
+
+            margin-bottom: 25px;
+
+            text-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.35);
+        }
+
+
+        .hero h1 span {
+
+            color: #307b9e;
+        }
+
+
+        .hero p {
+
+            max-width: 780px;
+
+            margin: 0 auto 35px;
+
+            font-size: 1.15rem;
+
+            line-height: 1.8;
+
+            letter-spacing: 1px;
+
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+
+        /* =========================================================
+           HERO BUTTONS
+        ========================================================= */
+
+        .hero-buttons {
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .hero-btn {
+
+            display: inline-block;
+
+            padding: 13px 28px;
+
+            border-radius: 4px;
+
+            font-weight: 600;
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .hero-btn.primary {
+
+            background: #4a8dcf;
+            color: #fff;
+        }
+
+
+        .hero-btn.primary:hover {
+
+            background: #b6b4b4;
+
+            transform: translateY(-3px);
+        }
+
+
+        .hero-btn.outline {
+
+            border: 2px solid #fff;
+
+            color: #fff;
+
+            background: transparent;
+        }
+
+
+        .hero-btn.outline:hover {
+
+            background: #fff;
+
+            color: #333;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================================
+           SCROLL INDICATOR
+        ========================================================= */
+
+        .scroll-down {
+
+            position: absolute;
+
+            bottom: 30px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            flex-direction: column;
+            align-items: center;
+
+            gap: 7px;
+
+            color: #fff;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            z-index: 10;
+        }
+
+
+        .scroll-down i {
+
+            font-size: 18px;
+
+            animation:
+                scrollMove 1.6s infinite;
+        }
+
+
+        @keyframes scrollMove {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(7px);
+            }
+        }
+
+
+        /* =========================================================
+           INTRO SECTION
+        ========================================================= */
+
+        .intro-section {
+
+            width: 100%;
+
+            padding: 85px 0;
+
+            background: aliceblue;
+        }
+
+
+        .container {
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+
+        .intro-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr);
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+
+        .intro-image img {
+
+            width: 100%;
+
+            height: 420px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .intro-content h2 {
+
+            font-size: 38px;
+
+            color: #174d35;
+
+            line-height: 1.2;
+
+            margin-bottom: 20px;
+        }
+
+
+        .intro-content h2 span {
+
+            color: #50a5c7;
+        }
+
+
+        .intro-content p {
+
+            font-size: 16px;
+
+            color: #666;
+
+            margin-bottom: 18px;
+        }
+
+
+        .divider {
+
+            width: 50px;
+
+            border: none;
+
+            border-top: 3px solid #73a2d4;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================================================
+           WHY CHOOSE US
+        ========================================================= */
+
+        .why-section {
+
+            width: 100%;
+
+            padding: 85px 0;
+
+            background: #fff;
+        }
+
+
+        .section-title {
+
+            max-width: 750px;
+
+            margin: 0 auto 50px;
+
+            text-align: center;
+        }
+
+
+        .section-title h2 {
+
+            font-size: 38px;
+
+            color: #174d35;
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-title h2 span {
+
+            color: #649cd4;
+        }
+
+
+        .section-title p {
+
+            font-size: 16px;
+
+            color: #666;
+        }
+
+
+        /* =========================================================
+           WHY CHOOSE US - 6 CARD SLIDER
+        ========================================================= */
+
+        .why-slider {
+
+            position: relative;
+
+            width: 100%;
+
+            overflow: hidden;
+        }
+
+
+        .why-track {
+
+            display: flex;
+
+            gap: 30px;
+
+            width: max-content;
+
+            transition:
+                transform 0.45s ease;
+        }
+
+
+        .why-track .why-card {
+
+            flex: 0 0 370px;
+
+            width: 370px;
+        }
+
+
+        .why-card {
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            background: #f8f8f8;
+
+            border: 1px solid #eee;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .why-card:hover {
+
+            transform: translateY(-6px);
+        }
+
+
+        /* =========================================================
+           WHY CHOOSE US ICON
+        ========================================================= */
+
+        .why-icon {
+
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #174d35;
+
+            color: #fff;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+        }
+
+
+        .why-card h3 {
+
+            color: #174d35;
+
+            margin-bottom: 10px;
+
+            font-size: 20px;
+        }
+
+
+        .why-card p {
+
+            color: #666;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================================
+           SLIDER BUTTONS
+        ========================================================= */
+
+        .why-scroll-buttons {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            gap: 10px;
+
+            margin-top: 25px;
+        }
+
+
+        .why-scroll-btn {
+
+            width: 42px;
+            height: 42px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #174d35;
+
+            color: #fff;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            transition:
+                background-color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .why-scroll-btn:hover {
+
+            background: #649cd4;
+
+            transform: translateY(-2px);
+        }
+
+
+        .why-scroll-btn:disabled {
+
+            opacity: 0.4;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        /* =========================================================
+           CTA SECTION
+        ========================================================= */
+
+        .cta-section {
+
+            width: 100%;
+
+            padding: 90px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(44, 128, 137, 0.88),
+                    rgba(85, 87, 86, 0.90)
+                ),
+                url('https://i.pinimg.com/1200x/d6/8c/ad/d68cadc8e8db8ebbbeffa3fc17d89063.jpg')
+                no-repeat center center / cover;
+
+            text-align: center;
+
+            color: #fff;
+        }
+
+
+        .cta-section h2 {
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .cta-section p {
+
+            max-width: 700px;
+
+            margin: 0 auto 30px;
+
+            color: rgba(255, 255, 255, 0.85);
+
+            font-size: 16px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .footer {
+
+            width: 100%;
+
+            background-color: #212529;
+
+            color: #adb5bd;
+
+            padding: 60px 0 20px;
+
+            text-align: center;
+        }
+
+
+        .footer h2 {
+
+            color: #fff;
+
+            margin-bottom: 40px;
+
+            font-size: 28px;
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 30px;
+
+            text-align: left;
+
+            margin-bottom: 40px;
+        }
+
+
+        .footer-col {
+
+            min-width: 0;
+        }
+
+
+        .footer-col h4 {
+
+            color: #fff;
+
+            margin-bottom: 15px;
+
+            font-size: 1rem;
+        }
+
+
+        .footer-col ul {
+
+            list-style: none;
+        }
+
+
+        .footer-col ul li {
+
+            margin-bottom: 8px;
+        }
+
+
+        .footer-col ul li a {
+
+            color: #adb5bd;
+
+            text-decoration: none;
+
+            font-size: 0.9rem;
+
+            transition:
+                color 0.3s ease;
+        }
+
+
+        .footer-col ul li a:hover {
+
+            color: #fff;
+        }
+
+
+        .social-icons {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 15px;
+        }
+
+
+        .social-icons i {
+
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #343a40;
+
+            border-radius: 50%;
+
+            color: #fff;
+
+            cursor: pointer;
+
+            transition:
+                background-color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .social-icons i:hover {
+
+            background-color: #d4a373;
+
+            transform: translateY(-3px);
+        }
+
+
+        .footer-col p {
+
+            margin-bottom: 5px;
+        }
+
+
+        .footer-col input {
+
+            width: 100%;
+
+            padding: 11px 12px;
+
+            border: none;
+
+            outline: none;
+
+            border-radius: 4px;
+
+            margin-top: 10px;
+
+            font-size: 14px;
+        }
+
+
+        .footer-bottom {
+
+            border-top: 1px solid #343a40;
+
+            padding-top: 20px;
+
+            font-size: 0.85rem;
+        }
+
+
+        /* =========================================================
+           LARGE DESKTOP - 1920px AND ABOVE
+        ========================================================= */
+
+        @media (min-width: 1920px) {
+
+            .nav-container {
+
+                padding-left: 70px;
+                padding-right: 70px;
+            }
+
+
+            .logo img {
+
+                width: 150px;
+            }
+
+
+            .navbar {
+
+                gap: 25px;
+            }
+
+
+            .navbar a {
+
+                font-size: 1rem;
+            }
+
+
+            .hero h1 {
+
+                font-size: 5rem;
+            }
+
+
+            .container {
+
+                max-width: 1400px;
+            }
+
+
+            .intro-section,
+            .why-section {
+
+                padding-top: 110px;
+                padding-bottom: 110px;
+            }
+
+
+            .intro-image img {
+
+                height: 500px;
+            }
+
+
+            .why-track .why-card {
+
+                flex-basis: 446.66px;
+
+                width: 446.66px;
+            }
+        }
+
+
+        /* =========================================================
+           DESKTOP - 1440px TO 1919px
+        ========================================================= */
+
+        @media (min-width: 1440px) and (max-width: 1919px) {
+
+            .nav-container {
+
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+
+            .container {
+
+                max-width: 1250px;
+            }
+
+
+            .why-track .why-card {
+
+                flex-basis: 383px;
+                width: 396px;
+            }
+        }
+
+
+        /* =========================================================
+           LAPTOP - 1024px TO 1439px
+        ========================================================= */
+
+        @media (min-width: 1024px) and (max-width: 1439px) {
+
+            .nav-container {
+
+                padding: 18px 30px;
+            }
+
+
+            .navbar {
+
+                gap: 12px;
+            }
+
+
+            .navbar a {
+
+                margin-left: 8px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 4rem;
+            }
+        }
+
+
+        /* =========================================================
+           TABLET - 768px TO 1023px
+        ========================================================= */
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+
+            .nav-container {
+
+                padding: 18px 25px;
+            }
+
+
+            .logo img {
+
+                width: 110px;
+            }
+
+
+            .navbar {
+
+                gap: 7px;
+            }
+
+
+            .navbar a {
+
+                font-size: 0.82rem;
+
+                margin-left: 5px;
+            }
+
+
+            .header-btn .btn-primary {
+
+                padding: 8px 14px;
+
+                font-size: 13px;
+            }
+
+
+            .hero {
+
+                padding: 70px 20px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 3.3rem;
+            }
+
+
+            .hero p {
+
+                font-size: 1rem;
+            }
+
+
+            .intro-section,
+            .why-section {
+
+                padding: 70px 0;
+            }
+
+
+            .intro-grid {
+
+                gap: 35px;
+            }
+
+
+            .intro-image img {
+
+                height: 350px;
+            }
+
+
+            .intro-content h2 {
+
+                font-size: 34px;
+            }
+
+
+            /* 2 cards visible */
+            .why-track {
+
+                gap: 20px;
+            }
+
+
+            .why-track .why-card {
+
+                flex-basis:
+                    calc((100vw - 70px) / 2);
+
+                width:
+                    calc((100vw - 70px) / 2);
+            }
+
+
+            .why-scroll-buttons {
+
+                justify-content: center;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 40px 30px;
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE DEVICES
+        ========================================================= */
+
+        @media screen and (max-width: 767px) {
+
+            html,
+            body {
+
+                width: 100%;
+
+                max-width: 100%;
+
+                overflow-x: hidden;
+            }
+
+
+            .header {
+
+                width: 100%;
+
+                height: 100vh;
+
+                min-height: 620px;
+
+                background: #111;
+            }
+
+
+            .hero-video {
+
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+
+                object-position: center center;
+            }
+
+
+            .nav-container {
+
+                width: 100%;
+
+                padding: 14px 20px;
+
+                position: relative;
+            }
+
+
+            .logo img {
+
+                width: 105px;
+
+                height: auto;
+            }
+
+
+            .header-btn {
+
+                display: none;
+            }
+
+
+            .menu-toggle {
+
+                display: flex;
+
+                width: 40px;
+                height: 40px;
+
+                align-items: center;
+                justify-content: center;
+
+                flex-shrink: 0;
+            }
+
+
+            /* MOBILE NAV */
+
+            .navbar {
+
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+                right: 0;
+
+                width: 100%;
+
+                padding: 8px 0;
+
+                margin: 0;
+
+                background: rgba(20, 20, 20, 0.98);
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 0;
+
+                z-index: 9999;
+            }
+
+
+            .navbar.show {
+
+                display: flex;
+            }
+
+
+            .navbar a {
+
+                width: 100%;
+
+                margin: 0;
+
+                padding: 13px 20px;
+
+                text-align: center;
+
+                font-size: 15px;
+            }
+
+
+            /* HERO */
+
+            .hero {
+
+                width: 100%;
+
+                padding: 50px 20px 90px;
+
+                text-align: center;
+            }
+
+
+            .hero-content {
+
+                max-width: 100%;
+            }
+
+
+            .hero-small {
+
+                font-size: 15px;
+
+                letter-spacing: 2px;
+
+                margin-bottom: 14px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 2.6rem;
+
+                line-height: 1.15;
+
+                margin-bottom: 18px;
+            }
+
+
+            .hero p {
+
+                width: 100%;
+
+                max-width: 390px;
+
+                margin: 0 auto 28px;
+
+                font-size: 15px;
+
+                line-height: 1.6;
+
+                letter-spacing: 0.5px;
+            }
+
+
+            .hero-buttons {
+
+                gap: 10px;
+            }
+
+
+            .hero-btn {
+
+                padding: 11px 20px;
+
+                font-size: 14px;
+            }
+
+
+            .scroll-down {
+
+                bottom: 18px;
+
+                font-size: 11px;
+            }
+
+
+            /* INTRO */
+
+            .intro-section {
+
+                width: 100%;
+
+                padding: 55px 20px;
+            }
+
+
+            .container {
+
+                width: 100%;
+
+                max-width: 100%;
+
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+
+            .intro-grid {
+
+                width: 100%;
+
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+
+            .intro-image img {
+
+                width: 100%;
+
+                height: 300px;
+            }
+
+
+            .intro-content h2 {
+
+                font-size: 32px;
+
+                line-height: 1.25;
+
+                margin-bottom: 18px;
+            }
+
+
+            .intro-content p {
+
+                font-size: 15px;
+
+                line-height: 1.7;
+            }
+
+
+            /* WHY */
+
+            .why-section {
+
+                padding: 55px 20px;
+            }
+
+
+            .section-title {
+
+                margin-bottom: 35px;
+            }
+
+
+            .section-title h2 {
+
+                font-size: 32px;
+            }
+
+
+            .section-title p {
+
+                font-size: 15px;
+            }
+
+
+            /* 1 card visible */
+
+            .why-slider {
+
+                width: 100%;
+
+                overflow: hidden;
+            }
+
+
+            .why-track {
+
+                gap: 15px;
+            }
+
+
+            .why-track .why-card {
+
+                flex-basis:
+                    calc(100vw - 40px);
+
+                width:
+                    calc(100vw - 40px);
+            }
+
+
+            .why-scroll-buttons {
+
+                justify-content: center;
+
+                margin-top: 20px;
+            }
+
+
+            .why-scroll-btn {
+
+                width: 40px;
+                height: 40px;
+            }
+
+
+            /* CTA */
+
+            .cta-section {
+
+                padding: 70px 20px;
+            }
+
+
+            .cta-section h2 {
+
+                font-size: 32px;
+            }
+
+
+            .cta-section p {
+
+                font-size: 15px;
+
+                line-height: 1.7;
+            }
+
+
+            /* FOOTER */
+
+            .footer {
+
+                width: 100%;
+
+                padding: 45px 20px 20px;
+            }
+
+
+            .footer .container {
+
+                width: 100%;
+            }
+
+
+            .footer h2 {
+
+                font-size: 24px;
+
+                margin-bottom: 30px;
+            }
+
+
+            .footer-grid {
+
+                width: 100%;
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap: 35px 20px;
+            }
+
+
+            .footer-col {
+
+                width: 100%;
+
+                min-width: 0;
+            }
+
+
+            .footer-col h4 {
+
+                font-size: 15px;
+            }
+
+
+            .footer-col ul li a {
+
+                font-size: 13px;
+            }
+
+
+            .footer-col p {
+
+                font-size: 14px;
+            }
+
+
+            .footer-col input {
+
+                width: 100%;
+
+                max-width: 100%;
+
+                font-size: 13px;
+            }
+
+
+            .social-icons {
+
+                flex-wrap: wrap;
+
+                gap: 8px;
+            }
+
+
+            .social-icons i {
+
+                width: 32px;
+                height: 32px;
+
+                font-size: 13px;
+            }
+
+
+            .footer-bottom {
+
+                font-size: 12px;
+
+                line-height: 1.5;
+            }
+        }
+
+
+        /* =========================================================
+           EXACT 430px
+        ========================================================= */
+
+        @media screen and (min-width: 430px) and (max-width: 430px) {
+
+            .nav-container {
+
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+
+            .logo img {
+
+                width: 108px;
+            }
+
+
+            .hero {
+
+                padding:
+                    40px 20px 85px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 2.7rem;
+            }
+
+
+            .hero p {
+
+                max-width: 390px;
+            }
+
+
+            .intro-image img {
+
+                height: 310px;
+            }
+        }
+
+
+        /* =========================================================
+           SMALLER PHONES
+        ========================================================= */
+
+        @media screen and (max-width: 374px) {
+
+            .nav-container {
+
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+
+            .logo img {
+
+                width: 90px;
+            }
+
+
+            .menu-toggle {
+
+                width: 38px;
+                height: 38px;
+
+                font-size: 17px;
+            }
+
+
+            .hero {
+
+                padding:
+                    30px 15px 80px;
+            }
+
+
+            .hero-small {
+
+                font-size: 13px;
+
+                letter-spacing: 1.5px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 2.2rem;
+            }
+
+
+            .hero p {
+
+                font-size: 14px;
+            }
+
+
+            .hero-btn {
+
+                font-size: 13px;
+
+                padding: 9px 16px;
+            }
+
+
+            .intro-section,
+            .why-section {
+
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+
+            .intro-image img {
+
+                height: 250px;
+            }
+
+
+            .intro-content h2 {
+
+                font-size: 28px;
+            }
+
+
+            .section-title h2 {
+
+                font-size: 28px;
+            }
+
+
+            .why-track .why-card {
+
+                flex-basis:
+                    calc(100vw - 30px);
+
+                width:
+                    calc(100vw - 30px);
+            }
+
+
+            .footer {
+
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+
+            .social-icons {
+
+                justify-content: center;
+            }
+        }
+
+
+        /* =========================================================
+           PREVENT LONG WORDS FROM CAUSING HORIZONTAL SCROLL
+        ========================================================= */
+
+        .hero-content,
+        .intro-content,
+        .why-card,
+        .footer-col {
+
+            overflow-wrap: break-word;
+
+            word-wrap: break-word;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         FULL SCREEN HOME HEADER
+    ========================================================= -->
+
+    <header class="header">
+
+
+        <!-- VIDEO BACKGROUND -->
+
+        <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto">
+
+            <source
+                src="./images/From Klickpin.com- Boho home decor ideas that are perfect when you want something stylish modern and easy to copy for people who want stylish idea.mp4"
+                type="video/mp4">
+
+            Your browser does not support the video tag.
+
+        </video>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="nav-container">
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <img
+                    src="./images/logo.jpg"
+                    alt="Company Logo">
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <nav
+                class="navbar"
+                id="navbar">
+
+                <a
+                    href="index.html"
+                    class="active">
+
+                    Home
+
+                </a>
+
+
+                <a href="./about.html">
+
+                    About
+
+                </a>
+
+
+                <a href="service.html">
+
+                    Services
+
+                </a>
+
+
+                <a href="./contact.html">
+
+                    Contact
+
+                </a>
+
+            </nav>
+
+
+            <!-- DESKTOP CONTACT BUTTON -->
+
+            <div class="header-btn">
+
+                <a
+                    href="#contact"
+                    class="btn-primary">
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+
+            <!-- MOBILE MENU -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open Menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+        </div>
+
+
+        <!-- HERO -->
+
+        <div class="hero">
+
+
+            <div class="hero-content">
+
+
+                <div class="hero-small">
+
+                    Premium Quality Materials
+
+                </div>
+
+
+                <h1>
+
+                    Building Beautiful
+                    <br>
+
+                    <span>Spaces That Last</span>
+
+                </h1>
+
+
+                <div class="hero-buttons">
+
+
+                    <a
+                        href="#why"
+                        class="hero-btn primary">
+
+                        Explore Products
+
+                    </a>
+
+
+                    <a
+                        href="about.html"
+                        class="hero-btn outline">
+
+                        About Us
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         INTRO SECTION
+    ========================================================= -->
+
+    <!--
+    <section
+        class="intro-section"
+        id="intro">
+
+        <div class="container">
+
+            <div class="intro-grid">
+
+                <div class="intro-image">
+
+                    <img
+                        src="./images/dummy5.jpg"
+                        alt="Premium Furniture">
+
+                </div>
+
+
+                <div class="intro-content">
+
+                    <h2>
+
+                        Quality Materials.
+                        <br>
+
+                        <span>Beautiful Results.</span>
+
+                    </h2>
+
+
+                    <hr class="divider">
+
+
+                    <p>
+
+                        We provide premium plywood and PVC
+                        materials designed for modern interiors,
+                        furniture and architectural applications.
+
+                    </p>
+
+
+                    <p>
+
+                        From carefully selected materials to
+                        precise craftsmanship, every project is
+                        created with attention to quality,
+                        durability and elegant design.
+
+                    </p>
+
+
+                    <a
+                        href="about.html"
+                        class="btn-primary">
+
+                        Discover More
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    -->
+
+
+    <!-- =========================================================
+         WHY CHOOSE US
+    ========================================================= -->
+
+    <section
+        class="why-section"
+        id="why">
+
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <h2>
+
+                    Why <span>Choose Us</span>
+
+                </h2>
+
+
+                <p>
+
+                    We combine quality materials,
+                    thoughtful design and skilled
+                    craftsmanship.
+
+                </p>
+
+            </div>
+
+
+            <!-- SIX CARD SLIDER -->
+
+            <div class="why-slider">
+
+                <div
+                    class="why-track"
+                    id="whyTrack">
+
+
+                    <!-- CARD 1 -->
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-gem"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Premium Quality
+
+                        </h3>
+
+
+                        <p>
+
+                            We focus on quality materials
+                            that provide long-lasting
+                            performance.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- CARD 2 -->
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-ruler-combined"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Precision Design
+
+                        </h3>
+
+
+                        <p>
+
+                            Every project is carefully planned
+                            and crafted for a refined finish.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- CARD 3 -->
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Built to Last
+
+                        </h3>
+
+
+                        <p>
+
+                            Durable materials and reliable
+                            workmanship for lasting results.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- CARD 4 -->
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Wide Material Range
+
+                        </h3>
+
+
+                        <p>
+
+                            A wide selection of plywood and PVC
+                            materials for different interior
+                            requirements.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- CARD 5 -->
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-pen-ruler"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Custom Solutions
+
+                        </h3>
+
+
+                        <p>
+
+                            We provide practical solutions
+                            designed around your project and
+                            space requirements.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- CARD 6 -->
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-handshake"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Trusted Service
+
+                        </h3>
+
+
+                        <p>
+
+                            We value clear communication,
+                            dependable service and customer
+                            satisfaction.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+          
+
+                <div class="why-scroll-buttons">
+
+                    <button
+                        class="why-scroll-btn"
+                        id="whyPrev"
+                        aria-label="Previous cards">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                    </button>
+
+
+                    <button
+                        class="why-scroll-btn"
+                        id="whyNext"
+                        aria-label="Next cards">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         CTA
+    ========================================================= -->
+
+    <section
+        class="cta-section"
+        id="contact">
+
+
+        <h2>
+
+            Let's Create Something
+            <br>
+
+            Beautiful Together
+
+        </h2>
+
+
+        <p>
+
+            Looking for quality plywood, PVC materials
+            or custom furniture solutions? Let's discuss
+            your next project.
+
+        </p>
+
+
+        <a
+            href="#"
+            class="hero-btn primary">
+
+            Contact Us
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer class="footer">
+
+
+        <div class="container">
+
+
+            <h2>
+
+                Premium Plywood & Furniture
+
+            </h2>
+
+
+            <div class="footer-grid">
+
+
+                <!-- COLUMN 1 -->
+
+                <div class="footer-col">
+
+                    <h4>
+
+                        Main Products
+
+                    </h4>
+
+
+                    <ul>
+
+                        <li>
+
+                            <a href="#">
+
+                                Premium Plywood
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="#">
+
+                                PVC Materials
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="#">
+
+                                Custom Furniture
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+
+                    <div class="social-icons">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                        <i class="fa-brands fa-twitter"></i>
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                        <i class="fa-brands fa-pinterest-p"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- COLUMN 2 -->
+
+                <div class="footer-col">
+
+                    <h4>
+
+                        Support Center
+
+                    </h4>
+
+
+                    <ul>
+
+                        <li>
+
+                            <a href="#">
+
+                                Help Center
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="#">
+
+                                FAQs
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="#">
+
+                                Warranty
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- COLUMN 3 -->
+
+                <div class="footer-col">
+
+                    <h4>
+
+                        Quick Links
+
+                    </h4>
+
+
+                    <ul>
+
+                        <li>
+
+                            <a href="index.html">
+
+                                Home
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="about.html">
+
+                                About Us
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="#contact">
+
+                                Contact Us
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- COLUMN 4 -->
+
+                <div class="footer-col">
+
+                    <h4>
+
+                        Newsletter
+
+                    </h4>
+
+
+                    <p>
+
+                        Subscribe for updates
+
+                    </p>
+
+
+                    <input
+                        type="email"
+                        placeholder="Your email address">
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+
+                    &copy; 2026 Premium Plywood &
+                    Furniture. All rights reserved.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+
+        const navbar =
+            document.getElementById("navbar");
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                navbar.classList.toggle("show");
+
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+
+                if (
+                    navbar.classList.contains("show")
+                ) {
+
+                    icon.classList.remove(
+                        "fa-bars"
+                    );
+
+                    icon.classList.add(
+                        "fa-xmark"
+                    );
+
+                } else {
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           CLOSE MENU WHEN LINK IS CLICKED
+        ===================================================== */
+
+        const navLinks =
+            navbar.querySelectorAll("a");
+
+
+        navLinks.forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navbar.classList.remove(
+                            "show"
+                        );
+
+
+                        const icon =
+                            menuToggle.querySelector("i");
+
+
+                        icon.classList.remove(
+                            "fa-xmark"
+                        );
+
+
+                        icon.classList.add(
+                            "fa-bars"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           CLOSE MENU ON DESKTOP
+        ===================================================== */
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                if (window.innerWidth >= 768) {
+
+                    navbar.classList.remove(
+                        "show"
+                    );
+
+
+                    const icon =
+                        menuToggle.querySelector("i");
+
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           WHY CHOOSE US - 6 CARD SLIDER
+        ===================================================== */
+
+        const whyTrack =
+            document.getElementById("whyTrack");
+
+
+        const whyPrev =
+            document.getElementById("whyPrev");
+
+
+        const whyNext =
+            document.getElementById("whyNext");
+
+
+        const whyCards =
+            whyTrack
+                ? whyTrack.querySelectorAll(".why-card")
+                : [];
+
+
+        let whyIndex = 0;
+
+
+        /* =====================================================
+           GET NUMBER OF VISIBLE CARDS
+        ===================================================== */
+
+        function getVisibleWhyCards() {
+
+            if (window.innerWidth >= 1024) {
+
+                return 3;
+
+            }
+
+
+            if (window.innerWidth >= 768) {
+
+                return 2;
+
+            }
+
+
+            return 1;
+
+        }
+
+
+        /* =====================================================
+           UPDATE SLIDER
+        ===================================================== */
+
+        function updateWhySlider() {
+
+            if (
+                !whyTrack ||
+                !whyCards.length
+            ) {
+
+                return;
+
+            }
+
+
+            const visible =
+                getVisibleWhyCards();
+
+
+            const maxIndex =
+                Math.max(
+                    0,
+                    whyCards.length - visible
+                );
+
+
+            if (whyIndex > maxIndex) {
+
+                whyIndex = maxIndex;
+
+            }
+
+
+            const cardWidth =
+                whyCards[0]
+                    .getBoundingClientRect()
+                    .width;
+
+
+            const gap =
+                parseFloat(
+                    getComputedStyle(
+                        whyTrack
+                    ).gap
+                ) || 0;
+
+
+            whyTrack.style.transform =
+                `translateX(-${
+                    whyIndex *
+                    (cardWidth + gap)
+                }px)`;
+
+
+            whyPrev.disabled =
+                whyIndex === 0;
+
+
+            whyNext.disabled =
+                whyIndex >= maxIndex;
+
+        }
+
+
+        /* =====================================================
+           NEXT / PREVIOUS BUTTONS
+        ===================================================== */
+
+        if (
+            whyPrev &&
+            whyNext
+        ) {
+
+
+            whyPrev.addEventListener(
+                "click",
+                function () {
+
+                    if (whyIndex > 0) {
+
+                        whyIndex--;
+
+                        updateWhySlider();
+
+                    }
+
+                }
+            );
+
+
+            whyNext.addEventListener(
+                "click",
+                function () {
+
+                    const visible =
+                        getVisibleWhyCards();
+
+
+                    const maxIndex =
+                        Math.max(
+                            0,
+                            whyCards.length -
+                            visible
+                        );
+
+
+                    if (
+                        whyIndex <
+                        maxIndex
+                    ) {
+
+                        whyIndex++;
+
+                        updateWhySlider();
+
+                    }
+
+                }
+            );
+
+
+            window.addEventListener(
+                "resize",
+                updateWhySlider
+            );
+
+
+            updateWhySlider();
+
+        }
+
+
+        /* =====================================================
+           VIDEO AUTOPLAY FALLBACK
+        ===================================================== */
+
+        const heroVideo =
+            document.querySelector(
+                ".hero-video"
+            );
+
+
+        heroVideo.play()
+            .catch(
+                function () {
+
+                    console.log(
+                        "Video autoplay was blocked."
+                    );
+
+                }
+            );
+
+
+    </script>
+
+
+</body>
+
+</html>
